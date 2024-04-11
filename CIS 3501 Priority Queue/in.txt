@@ -1,0 +1,7 @@
+Data 3
+form 7
+idoit 1
+friendship 5
+lovely 2
+king 8
+kiss 10

@@ -1,147 +1,168 @@
 #include "Header.h"
 
 // Function that inserts initial elements into heap
-void minHeap::Init(priorityData a[], int startSize, int arraySize)hj
+void minHeap::Init( string Title)
 {
-    // Initialize the minHeap to array a
-    
-    delete[] heap;
-    heap = a;
-	currentSize = startSize; // Current size
-    Capacity = arraySize;    // Capacity
+    string heapString;
+
     // Start heapify process from the last parent node up to the root node
     for (int i = currentSize / 2; i >= 1; i--)
     {
         priorityData y = heap[i];  // root of subtree to heapify
         int c = 2 * i;  // c is the first child of i
-        while (c <= currentSize) // Change this from c < size to c <= size
+        while (c <= currentSize) 
         {
-            // c should be the smaller child, not the larger child
-            if (c < currentSize && heap[c] > heap[c + 1]) c++;
-            // The item y is no longer compared to larger child but to the smaller child for minHeap
-            if (y <= heap[c]) break;
+            // c is the smaller child
+            if (c < currentSize && heap[c].priorityValue > heap[c + 1].priorityValue) c++;
+
+            // y is compared with the smaller child for minheap
+            if (y.priorityValue <= heap[c].priorityValue) break;
+
             heap[c / 2] = heap[c]; // move child up
-            c *= 2;               // move down a level
+            c = c * 2;               // move down a level
         }
         heap[c / 2] = y;
     }
-    
-   // return *this;/ Ensure the method returns a reference to the current object
+
+    heapString = toString(Title);
+    printHeap(heapString);
 }
 
+// Prints the heap in string format
+string minHeap::toString(string title)  const
+{
+    string str = "[";
 
-void minHeap::ProcessInsertFile(string filename, ofstream& outputfile) {
+    cout << "Test Name: " << title << endl;
 
+    for (int i = 1; i <= currentSize; i++) {
+        str = str + "(" + heap[i].dataValue + " ," + to_string(heap[i].priorityValue) + "); ";
+    }
 
+    str = str + "]";
+    return str;
 
-	ifstream insertfile(filename);	//Input file stream
-	string line;					// String to hold each line of input
-	int lineNumber = 0;				// Track line numbers for error messages
+}
 
-	// Check if the file can open
-	if (!insertfile.is_open()) {
-		cerr << "Error opening file: " + filename << endl;
-		outputfile << "Error opening file: " + filename << endl;
-		return; // Stop the operation
-	}
+void minHeap::ProcessInsertFile(string filename, ofstream& outputfile, string title) 
+{
+    ifstream insertfile(filename);	//Input file stream
+    string line;					// String to hold each line of input
+    int lineNumber = 0;				// Track line numbers for error messages
 
-	// Check if the file is empty
-	if (insertfile.peek() == ifstream::traits_type::eof()) {
-		cerr << "Error: The file " + filename + " is empty, please enter a different file" << endl;
-		outputfile << "Error: The file " + filename + " is empty, please enter a different file" << endl;
-		return; // Stop the operation
-	}
+    // Assume file is formatted correctly
+    int index = 1; // Start at 1 to maintain 1-indexing of heap
+    while (getline(insertfile, line)) {
+        stringstream ss(line);
+        int priority;
+        string data;
 
-	char C = 'C';
-	// Read from the file line by line
-	while (getline(insertfile, line)) {
-		lineNumber++; // Increment line number
+        // Since we are assuming the file is formatted correctly,
+        // a failed read implies an end to the data input.
+        if (!(ss >> data >> priority)) {
+            break;
+        }
 
-		// Use a stringstream to read from the line
-		stringstream ss(line);
+        // Insert data into the dataArray
+        heap[index++] = { data, priority };
+        currentSize++;
 
-		// Attempt to read a number from the line
-		int num; //temp storage
-		if (!(ss >> num)) {
-			// If extraction fails, report an error and continue to the next line
-			cerr << "Error: Non-integer data found on line " << lineNumber << " in the InsertFile " << filename << ". Skipping line." << endl;
-			outputfile << "Error: Non-integer data found on line " << lineNumber << " in the InsertFile " << filename << ". Skipping line." << endl;
-			continue;
-		}
+        // Checks if the array is full and double size if so
+        expandHeap();  
+    }
 
-		// Check if there's anything else on the line after the integer
-		string extra;
-		if (ss >> extra) {
-			// If extra data is found after the integer, report an error and continue to the next line
-			cerr << "Error: More than one token found on line " << lineNumber << " in the Insertfile " << filename << ". Skipping line." << endl;
-			outputfile << "Error: More than one token found on line " << lineNumber << " in the Insertfile " << filename << ". Skipping line." << endl;
-			continue;
-		}
+    insertfile.close();		//Close input file stream
 
-		// No errors encountered; insert the number into the binary search tree and print each iteration
-		opCount.creations++;
-		InsertItem(num);
-		outputfile << "Insert: " << num << endl << endl;
-		cout << "Insert: " << num << endl << endl;
-		PrintTree(outputfile, C);
-	}
-
-	insertfile.close();		//Close input file stream
+    Init(title);
 }
 
 
 
 void minHeap::addElement(priorityData element) {
+    
+}
+
+
+void minHeap::expandHeap() 
+{
+    if (currentSize == Capacity) {
+        priorityData* tempHeap = new priorityData[Capacity * 2 + 1];
+        for (int i = 1; i <= currentSize; i++) {
+            tempHeap[i] = heap[i];
+        }
+        Capacity = Capacity * 2;
+        delete[] heap;
+        heap = tempHeap;
+    }
+}
+
+
+void minHeap::contractHeap() 
+{
+    if (currentSize <= (Capacity / 2)) {
+        priorityData* tempHeap = new priorityData[Capacity / 2 + 1];
+        for (int i = 1; i <= currentSize; i++) {
+            tempHeap[i] = heap[i];
+        }
+        Capacity = Capacity / 2;
+        delete[] heap;
+        heap = tempHeap;
+    }
+    if (currentSize == 0) {
+        cout << "Heap is empty, Can not remove any more elements" << endl;
+        return;
+    }
+}
+
+
+bool minHeap::isFull()
+{
+    if (currentSize == Capacity) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+
+void minHeap::printHeap(string heapString) 
+{
+
+
+    cout << heapString << endl;
+    
 
 }
 
 
-void minHeap::expandHeap() {
-
-}
+//priorityData minHeap::removeMin() {}
 
 
-void minHeap::contractHeap() {
-
-}
-
-
-void minHeap::printOperations() {
-
-}
-
-
-string minHeap::toString() const {
-
-}
-
-
-priorityData minHeap::removeMin() {
-
-}
-
-
-priorityData minHeap::returnMin() {
-
-}
+//priorityData minHeap::returnMin() {}
 
 
 minHeap::minHeap() : Capacity(10), currentSize(0)
 {
-	// Allocate array to deafult size + 1 (not using index 0)
-	heap = new priorityData[Capacity + 1]; 
+    // Allocate array to deafult size + 1 (not using index 0)
+    //delete[] heap;
+    heap = new priorityData[Capacity + 1];
 }
 
 
-minHeap::minHeap(int heapSize) : Capacity(heapSize), currentSize(0){
+minHeap::minHeap(int heapSize) : Capacity(heapSize), currentSize(0) {
 
-	// Allocate array to custom size + 1 (not using index 0)
-	heap = new priorityData[Capacity + 1];
+    // Allocate array to custom size + 1 (not using index 0)
+   // delete[] heap;
+    heap = new priorityData[Capacity + 1];
 }
 
 
-minHeap::~minHeap() 
+minHeap::~minHeap()
 {
     delete[] heap;
 }
+
+
+
 

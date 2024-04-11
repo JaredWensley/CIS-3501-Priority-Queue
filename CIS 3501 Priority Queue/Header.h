@@ -1,5 +1,6 @@
 #pragma once
-
+#include <stdexcept>
+#include <numeric>
 #include <sstream>
 #include <array>
 #include<vector>
@@ -11,7 +12,8 @@
 
 using namespace std;
 
-struct priorityData {
+struct priorityData 
+{
 	string dataValue;
 	int priorityValue;
 };
@@ -21,9 +23,10 @@ public:
 	minHeap();				// Constructor
 	~minHeap();				// Destructor that deletes the heap
 	minHeap(int capacity);	// 
-	void ProcessInsertFile(string filename, ofstream& output);
-
+	void ProcessInsertFile(string filename, ofstream& output, string title);
+	
 protected:
+	string Title;
 	priorityData* heap;
 	int Capacity;
 	int currentSize;
@@ -31,13 +34,13 @@ protected:
 
 	priorityData removeMin();
 	priorityData returnMin();
-	string toString() const;
+	string toString(string) const;
 	void addElement(priorityData value);
 	void expandHeap();
 	void contractHeap();
-	void Init(priorityData a[], int startSize, int arraySize);
-	void printOperations();
-
+	void Init(string title);
+	void printHeap(string );
+	bool isFull();
 };
 
 

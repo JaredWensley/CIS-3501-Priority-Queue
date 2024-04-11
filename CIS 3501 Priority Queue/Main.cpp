@@ -1,9 +1,6 @@
 #include "Header.h"
 
 
-
-
-
 int main() 
 {
 	int heapSize;
@@ -48,7 +45,7 @@ int main()
 	outputFileName = outputFileName + ".txt"; 
 	ofstream output(outputFileName);
 
-	A.ProcessInsertFile(insertFileName, output);
+	A.ProcessInsertFile(insertFileName, output, title);
 
 
 
