@@ -20,8 +20,8 @@ struct priorityData
 
 class minHeap {
 public:
-	minHeap();				// Constructor
-	~minHeap();				// Destructor that deletes the heap
+	minHeap();				// 
+	~minHeap();				// 
 	minHeap(int capacity);	// 
 	void ProcessInsertFile(string filename, ofstream& output, string title);
 	
@@ -40,7 +40,7 @@ protected:
 	void contractHeap();
 	void Init(string title);
 	void printHeap(string );
-	bool isFull();
+	void heapDown();
 };
 
 

@@ -33,7 +33,7 @@ int main()
 	getline(cin, insertFileName); 	cout << endl;
 	insertFileName = insertFileName + ".txt";
 
-	// NOT USING ACTION FILE FOR NOW
+	// Dont have action file logic in program yet
 	/*cout << "Enter action file name: ";
 	getline(cin, actionFileName); 	cout << endl;
 	actionFileName = actionFileName + ".txt";*/

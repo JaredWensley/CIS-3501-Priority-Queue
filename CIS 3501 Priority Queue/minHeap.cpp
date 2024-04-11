@@ -4,7 +4,7 @@
 void minHeap::Init( string Title)
 {
     string heapString;
-
+    priorityData minValue;
     // Start heapify process from the last parent node up to the root node
     for (int i = currentSize / 2; i >= 1; i--)
     {
@@ -26,6 +26,13 @@ void minHeap::Init( string Title)
 
     heapString = toString(Title);
     printHeap(heapString);
+
+    minValue = removeMin();
+    cout << "Minimun Item was removed: " << minValue.dataValue << " " << minValue.priorityValue << endl;
+    cout << "Printing the heap again: " << endl << endl;
+    heapString = toString(Title);
+    printHeap(heapString);
+
 }
 
 // Prints the heap in string format
@@ -115,15 +122,7 @@ void minHeap::contractHeap()
 }
 
 
-bool minHeap::isFull()
-{
-    if (currentSize == Capacity) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
+
 
 
 void minHeap::printHeap(string heapString) 
@@ -136,16 +135,60 @@ void minHeap::printHeap(string heapString)
 }
 
 
-//priorityData minHeap::removeMin() {}
+priorityData minHeap::removeMin() 
+{
+    priorityData data = heap[1];
+
+    // Replace the root with highest index leaf node
+    heap[1] = heap[currentSize];
+
+    // Remove the data from the leaf node.
+    heap[currentSize].dataValue = "";
+    heap[currentSize].priorityValue = 0;
+
+    // Decrease the size of the heap
+    currentSize = currentSize - 1;
+
+    heapDown();
+
+    return data;
+
+}
+
+void minHeap::heapDown() 
+{
+    // increase heapDown counter
+
+    // temp value that holds root value that is replaced
+    priorityData temp = heap[1];
+
+    int c = 2;  // c is the first child of i
+    while (c <= currentSize)
+    {
+        // c is the smaller child
+        if (c < currentSize && heap[c].priorityValue > heap[c + 1].priorityValue) c++;
+
+        // y is compared with the smaller child for minheap
+        if (temp.priorityValue <= heap[c].priorityValue) break;
+
+        heap[c / 2] = heap[c]; // move child up
+        c = c * 2;               // move down a level
+    }
+    heap[c / 2] = temp;
+
+}
 
 
-//priorityData minHeap::returnMin() {}
+priorityData minHeap::returnMin() 
+{
+    return heap[1];
+}
 
 
 minHeap::minHeap() : Capacity(10), currentSize(0)
 {
     // Allocate array to deafult size + 1 (not using index 0)
-    //delete[] heap;
+   
     heap = new priorityData[Capacity + 1];
 }
 
@@ -153,7 +196,7 @@ minHeap::minHeap() : Capacity(10), currentSize(0)
 minHeap::minHeap(int heapSize) : Capacity(heapSize), currentSize(0) {
 
     // Allocate array to custom size + 1 (not using index 0)
-   // delete[] heap;
+ 
     heap = new priorityData[Capacity + 1];
 }
 
