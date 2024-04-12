@@ -13,8 +13,8 @@ using namespace std;
 
 struct priorityData 
 {
-	string dataValue;
-	int priorityValue;
+	string dataValue = "";
+	int priorityValue = 0;
 };
 
 class minHeap {
