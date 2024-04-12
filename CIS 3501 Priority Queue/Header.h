@@ -38,7 +38,7 @@ protected:
 	void expandHeap();
 	void contractHeap();
 	void Init(string title, ofstream& outputfile);
-	void printHeap(string );
+	void printHeap(string, ofstream&);
 	void heapDown();
 	void heapUp();
 };

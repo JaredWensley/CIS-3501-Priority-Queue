@@ -9,7 +9,6 @@ int main()
 	string insertFileName;
 	string actionFileName; 
 	string outputFileName;
-
 	minHeap A;
 
 	cout << "Default heap size is (10) or write in a custom number. Type (d)efault or (c)ustom: ";
@@ -19,7 +18,8 @@ int main()
 	}
 	else if (heapSizeType == "C" || heapSizeType == "c") {
 		cout << "Enter the size of heap: ";
-		cin >> heapSize; cout << endl;
+		cin >> heapSize;
+		cout << endl;
 		new minHeap(heapSize);
 	}
 

@@ -25,7 +25,8 @@ void minHeap::Init( string Title, ofstream& output)
     }
 
     heapString = toString(Title);
-    printHeap(heapString); 
+    printHeap(heapString, output);
+    output << endl;
     cout << endl;
 
     minValue = removeMin();
@@ -36,8 +37,10 @@ void minHeap::Init( string Title, ofstream& output)
     
     heapString = toString(Title);
     cout << "Test Name: " << Title << endl;
-    printHeap(heapString); cout << endl << endl;
-    
+    output << "Test Name: " << Title << endl;
+    printHeap(heapString, output); 
+    cout << endl << endl;
+    output << endl << endl;
 
    
     // Testing out AddElement function
@@ -45,9 +48,12 @@ void minHeap::Init( string Title, ofstream& output)
     addElement(heap[currentSize + 1]);
     cout << "This item was added to the heap--> [(" << heap[currentSize].dataValue << "," << heap[currentSize].priorityValue << ")]. ";
     cout << "Printing the heap again:" << endl;
+    output << "This item was added to the heap--> [(" << heap[currentSize].dataValue << "," << heap[currentSize].priorityValue << ")]. ";
+    output << "Printing the heap again:" << endl;
     heapString = toString(Title);
     cout << "Test Name: " << Title << endl;
-    printHeap(heapString);
+    output << "Test Name: " << Title << endl;
+    printHeap(heapString, output);
 
 }
 
@@ -101,7 +107,9 @@ void minHeap::ProcessInsertFile(string filename, ofstream& outputfile, string ti
 
 void minHeap::expandHeap() 
 {
-    if (currentSize == Capacity) {
+    
+    if (currentSize >= Capacity) {
+        cout << "expandHeap was called" << endl;
         priorityData* tempHeap = new priorityData[Capacity * 2 + 1];
         for (int i = 1; i <= currentSize; i++) {
             tempHeap[i] = heap[i];
@@ -115,7 +123,9 @@ void minHeap::expandHeap()
 
 void minHeap::contractHeap() 
 {
+  
     if (currentSize <= (Capacity / 2)) {
+        cout << "ContractHeap was called" << endl;
         priorityData* tempHeap = new priorityData[Capacity / 2 + 1];
         for (int i = 1; i <= currentSize; i++) {
             tempHeap[i] = heap[i];
@@ -134,13 +144,10 @@ void minHeap::contractHeap()
 
 
 
-void minHeap::printHeap(string heapString) 
+void minHeap::printHeap(string heapString, ofstream& output) 
 {
-
-
     cout << heapString << endl;
-    
-
+    output << heapString << endl;
 }
 
 
