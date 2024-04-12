@@ -19,9 +19,9 @@ struct priorityData
 
 class minHeap {
 public:
-	minHeap();				// 
-	~minHeap();				// 
-	minHeap(int capacity);	// 
+	minHeap();				
+	~minHeap();				 
+	minHeap(int capacity);	 
 	void ProcessInsertFile(string filename, ofstream& output, string title);
 	
 protected:
