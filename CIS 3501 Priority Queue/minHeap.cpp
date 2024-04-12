@@ -1,7 +1,7 @@
 #include "Header.h"
 
 // Function that inserts initial elements into heap
-void minHeap::Init( string Title)
+void minHeap::Init( string Title, ofstream& output)
 {
     string heapString;
     priorityData minValue;
@@ -25,12 +25,28 @@ void minHeap::Init( string Title)
     }
 
     heapString = toString(Title);
-    printHeap(heapString);
+    printHeap(heapString); 
+    cout << endl;
 
     minValue = removeMin();
-    cout << "Minimun Item was removed: " << minValue.dataValue << " " << minValue.priorityValue << endl;
-    cout << "Printing the heap again: " << endl << endl;
+    cout << "This Minimun Item was removed--> [(" << minValue.dataValue << "," << minValue.priorityValue << ")]. ";
+    cout << "Printing the heap again: " << endl;
+    output << "This Minimun Item was removed--> [(" << minValue.dataValue << "," << minValue.priorityValue << ")]. ";
+    output << "Printing the heap again: " << endl;
+    
     heapString = toString(Title);
+    cout << "Test Name: " << Title << endl;
+    printHeap(heapString); cout << endl << endl;
+    
+
+   
+    // Testing out AddElement function
+    heap[currentSize + 1] = { "funny", 1 };
+    addElement(heap[currentSize + 1]);
+    cout << "This item was added to the heap--> [(" << heap[currentSize].dataValue << "," << heap[currentSize].priorityValue << ")]. ";
+    cout << "Printing the heap again:" << endl;
+    heapString = toString(Title);
+    cout << "Test Name: " << Title << endl;
     printHeap(heapString);
 
 }
@@ -39,8 +55,6 @@ void minHeap::Init( string Title)
 string minHeap::toString(string title)  const
 {
     string str = "[";
-
-    cout << "Test Name: " << title << endl;
 
     for (int i = 1; i <= currentSize; i++) {
         str = str + "(" + heap[i].dataValue + " ," + to_string(heap[i].priorityValue) + "); ";
@@ -80,14 +94,9 @@ void minHeap::ProcessInsertFile(string filename, ofstream& outputfile, string ti
 
     insertfile.close();		//Close input file stream
 
-    Init(title);
+    Init(title, outputfile);
 }
 
-
-
-void minHeap::addElement(priorityData element) {
-    
-}
 
 
 void minHeap::expandHeap() 
@@ -176,6 +185,39 @@ void minHeap::heapDown()
     }
     heap[c / 2] = temp;
 
+}
+
+
+void minHeap::addElement(priorityData element)
+{
+    currentSize++;
+    heap[currentSize] = element;
+
+    heapUp();
+}
+
+void minHeap::heapUp() 
+{
+    // Finds the parent of the inserted item
+
+    for (int i = currentSize / 2; i >= 1; i--) {
+
+        
+        priorityData temp = heap[i];
+        int c = 2 * i;
+        while (c <= currentSize)
+        {
+            // c is the smaller child
+            if (c < currentSize && heap[c].priorityValue > heap[c + 1].priorityValue) c++;
+
+            // y is compared with the smaller child for minheap
+            if (temp.priorityValue <= heap[c].priorityValue) break;
+
+            heap[c / 2] = heap[c]; // move child up
+            c = c * 2;               // move down a level
+        }
+        heap[c / 2] = temp;
+    }
 }
 
 

@@ -9,7 +9,6 @@ int main()
 	string insertFileName;
 	string actionFileName; 
 	string outputFileName;
-	//minHeap* tempHeap;
 
 	minHeap A;
 

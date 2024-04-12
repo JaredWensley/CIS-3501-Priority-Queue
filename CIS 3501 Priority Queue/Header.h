@@ -8,7 +8,6 @@
 #include<string>
 #include<iostream>
 #include<fstream>
-// add include sfor files in and out
 
 using namespace std;
 
@@ -38,9 +37,10 @@ protected:
 	void addElement(priorityData value);
 	void expandHeap();
 	void contractHeap();
-	void Init(string title);
+	void Init(string title, ofstream& outputfile);
 	void printHeap(string );
 	void heapDown();
+	void heapUp();
 };
 
 
