@@ -24,7 +24,7 @@ public:
 	minHeap(int capacity);	 
 	void ProcessInsertFile(string filename, ofstream& output, string title);
 	void ProcessActionFile(string filename, ofstream& output, string title);
-	//void performActions();
+	void performActions(ofstream& outputfile, string title);
 	
 protected:
 	string Title;

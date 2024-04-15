@@ -8,7 +8,7 @@ int main()
 	string insertFileName;
 	string actionFileName; 
 	string outputFileName;
-	minHeap* A;
+	minHeap* A = nullptr;
 	string blank;
 
 
@@ -17,53 +17,53 @@ int main()
 	getline(cin, heapSizeType); cout << endl;
 
 	while (heapSizeType != "D" && heapSizeType != "d" && heapSizeType != "C" && heapSizeType != "c") {
-		if (heapSizeType == "D" || heapSizeType == "d") {
+		cerr << "Incorrect character, type D for default or C for custom: " << endl;
+		getline(cin, heapSizeType); // Get the input again
+		cout << endl;
+	}
+
+		
+	if (heapSizeType == "D" || heapSizeType == "d") {
 			A = new minHeap();
-		}
-		else if (heapSizeType == "C" || heapSizeType == "c") {
+	}
+	else if(heapSizeType == "C" || heapSizeType == "c") {
 			cout << "Enter the size of heap: ";
 			cin >> heapSize;
 			cout << endl;
 			A = new minHeap(heapSize);
 
 			getline(cin, blank);
-		}
-		else {
-			cout << "incorrect character, type D for default or C for custom: " << endl;
-		}
 	}
+	
+		
+	
 
 
 
 	//
-	cout << "Enter test title: ";
-	getline(cin, title); 	cout << endl;
+	if(A != nullptr) {
+		cout << "Enter test title: ";
+		getline(cin, title); 	cout << endl;
 
-	//
-	cout << "Enter insert file name: ";
-	getline(cin, insertFileName); 	cout << endl;
-	insertFileName = insertFileName + ".txt";
+		//
+		cout << "Enter insert file name: ";
+		getline(cin, insertFileName); 	cout << endl;
+		insertFileName = insertFileName + ".txt";
+
+		//
+		cout << "Note, file can not be made if the file name contains: / \\ : ? * \" < > |" << endl;
+		cout << "Enter outputfile name: ";
+		getline(cin, outputFileName); 	cout << endl;
+		outputFileName = outputFileName + ".txt";
+		ofstream output(outputFileName);
+
+		A->ProcessInsertFile(insertFileName, output, title);
+
+		A->performActions(output, title);
 
 
-	//void performActions();
-	//cout << "After the initial inserts occur," << endl;
-	//cout << "do you wish to perform actions from a (f)ile or (u)ser entered or (b)oth: ";
-
-
-	// Dont have action file logic in program yet
-	/*cout << "Enter action file name: ";
-	getline(cin, actionFileName); 	cout << endl;
-	actionFileName = actionFileName + ".txt";*/
-
-	//
-	cout << "Note, file can not be made if the file name contains: / \\ : ? * \" < > |" << endl;
-	cout << "Enter outputfile name: ";
-	getline(cin, outputFileName); 	cout << endl;
-	outputFileName = outputFileName + ".txt"; 
-	ofstream output(outputFileName);
-
-	A->ProcessInsertFile(insertFileName, output, title);
-
-	delete A;
+		delete A;
+	} 
+	return 0;
 
 }
