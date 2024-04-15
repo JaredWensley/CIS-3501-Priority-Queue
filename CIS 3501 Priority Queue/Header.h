@@ -23,13 +23,25 @@ public:
 	~minHeap();				 
 	minHeap(int capacity);	 
 	void ProcessInsertFile(string filename, ofstream& output, string title);
+	void ProcessActionFile(string filename, ofstream& output, string title);
+	//void performActions();
 	
 protected:
 	string Title;
 	priorityData* heap;
 	int Capacity;
 	int currentSize;
-	int count[9] = { 0 };	// array - Keeps track of operations
+	int counters[9] = { 0 };	// array - Keeps track of operations
+
+	// Index 0 -- Total Number of Inserts (initialization)				GOOD
+	// Index 1 -- Total Number of heap-down actions - Initialization	GOOD
+	// Index 2 -- Number of user requested Inserts						GOOD
+	// Index 3 -- Number of user requested removes						GOOD
+	// Index 4 -- Number of user requested return top					NOT
+	// Index 5 -- Number of user requested print						NOT
+	// Index 6 -- Number of heap actions for user actions				NOT
+	// Index 7 -- Total number of heap-up actions						GOOD		
+	// Index 8 -- Total number of heap-down actions						GOOD
 
 	priorityData removeMin();
 	priorityData returnMin();
@@ -38,7 +50,7 @@ protected:
 	void expandHeap();
 	void contractHeap();
 	void Init(string title, ofstream& outputfile);
-	void printHeap(string, ofstream&);
+	void printHeap(string heapstring, ofstream& output);
 	void heapDown();
 	void heapUp();
 };

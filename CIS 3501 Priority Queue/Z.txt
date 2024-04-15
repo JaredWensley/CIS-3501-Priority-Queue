@@ -1,0 +1,9 @@
+[(data ,3); (jared ,5); (mat ,8); (lovely ,9); ]
+
+This Minimun Item was removed--> [(data,3)]. Printing the heap again: 
+Test Name: int
+[(jared ,5); (lovely ,9); (mat ,8); ]
+
+
+Test Name: int
+[(jared ,5); (lovely ,9); (mat ,8); ]

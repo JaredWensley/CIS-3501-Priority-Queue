@@ -20,9 +20,12 @@ void minHeap::Init( string Title, ofstream& output)
 
             heap[c / 2] = heap[c]; // move child up
             c = c * 2;               // move down a level
+            counters[1]++; // Total numer of heap-downs for initialization
         }
         heap[c / 2] = y;
     }
+
+    
 
     heapString = toString(Title);
     printHeap(heapString, output);
@@ -44,12 +47,7 @@ void minHeap::Init( string Title, ofstream& output)
 
    
     // Testing out AddElement function
-    heap[currentSize + 1] = { "funny", 1 };
-    addElement(heap[currentSize + 1]);
-    cout << "This item was added to the heap--> [(" << heap[currentSize].dataValue << "," << heap[currentSize].priorityValue << ")]. ";
-    cout << "Printing the heap again:" << endl;
-    output << "This item was added to the heap--> [(" << heap[currentSize].dataValue << "," << heap[currentSize].priorityValue << ")]. ";
-    output << "Printing the heap again:" << endl;
+   
     heapString = toString(Title);
     cout << "Test Name: " << Title << endl;
     output << "Test Name: " << Title << endl;
@@ -92,16 +90,181 @@ void minHeap::ProcessInsertFile(string filename, ofstream& outputfile, string ti
 
         // Insert data into the dataArray
         heap[index++] = { data, priority };
+        counters[0]++;  //Total number of inserts increased by 1; 
         currentSize++;
 
         // Checks if the array is full and double size if so
-        expandHeap();  
+       expandHeap();  
     }
 
     insertfile.close();		//Close input file stream
 
     Init(title, outputfile);
 }
+
+
+
+void minHeap::ProcessActionFile(string actionfilename, ofstream& outputfile, string title) 
+{
+    priorityData minItem;
+    priorityData newElement;
+
+    string heapstring;
+    bool found;
+    ifstream actionfile(actionfilename);
+    string line;
+    int lineNumber = 0;
+
+    // Checks if the file can open
+    if (!actionfile.is_open()) {
+        cerr << "Error opening file: " + actionfilename << ": Please check your filename" << endl;
+        outputfile << "Error opening file: " + actionfilename << ": Please check your filename" << endl;
+        return;
+    }
+
+    // Check if the file is empty
+    if (actionfile.peek() == ifstream::traits_type::eof()) {
+        cerr << "Error: The file " + actionfilename + " is empty, please enter a different file" << endl;
+        outputfile << "Error: The file " + actionfilename + " is empty, please enter a different file" << endl;
+        return;
+    }
+
+    string insertData;
+    int insertPriority;
+    // Calls functions and handles errors for each line in the action file
+    while (getline(actionfile, line)) {
+        lineNumber++; // Increment line number
+
+        //Handle Error: Line is empty
+        if (line.empty()) continue;
+
+
+        // Handle Error: if the first character is not a letter
+        if (!isalpha(line[0])) {
+            cerr << "Error on line " << lineNumber << ": First character is not a letter, skipping line" << endl;
+            cerr << "Error on line " << lineNumber << ": First character is not a letter, skipping line" << endl;
+            ;
+        }
+
+        //Changes each lines first character to lower case letter
+        char action = tolower(line[0]);
+
+        stringstream ss(line.substr(1)); // To read from the rest of the line
+        int num;
+        char extra;
+
+      
+        // Handle Error: Extra character found after number,
+        if (ss >> extra) {
+            cerr << "Error on line " << lineNumber << " of action file: Missing or invalid argument after command. Skipping line." << endl;
+            outputfile << "Error on line " << lineNumber << " of action file: Missing or invalid argument after command. Skipping line." << endl;
+            continue;
+        }
+
+        // Continue to call insert, delte or search functions
+        else {
+
+            char R = 'r'; // Remove item
+            char I = 'i'; // Insert string / priority
+            char S = 's'; // See top element
+            char A = 'a'; // All items in string
+            switch (action) {
+            case 'i':
+
+              
+
+                if (!(ss >> insertData >> insertPriority)) {
+                    cerr << "Error on line " << lineNumber << ": Could not read insert data and priority. Skipping line." << endl;
+                    outputfile << "Error on line " << lineNumber << ": Could not read insert data and priority. Skipping line." << endl;
+                    continue;
+                }
+
+                outputfile << "Insert: (" << insertData << ", " << insertPriority << ")" << endl << endl;
+                cout << "Insert: (" << insertData << ", " << insertPriority << ")" << endl << endl;
+
+                newElement = { insertData, insertPriority };
+                heap[currentSize + 1] = newElement;
+
+                addElement(heap[currentSize + 1]);
+
+              //  heap[currentSize + 1] = { "funny", 1 };
+                cout << "This item was added to the heap--> [(" << heap[currentSize + 1].dataValue << "," << heap[currentSize + 1].priorityValue << ")]. ";
+                //addElement(heap[currentSize + 1]);
+                cout << "Printing the heap again:" << endl;
+
+               // heapstring = toString(title);
+               // printHeap(heapstring, outputfile);
+
+                counters[2]++; // Increase number of requested inserts;
+
+
+                break;
+
+            case 'r':
+
+                // Call delete function
+                outputfile << "Remove: " << num << endl << endl;
+                cout << "Remove: " << num << endl << endl;
+                removeMin();
+              
+                counters[3]++; // Number of user requested removes
+
+              // heapstring = toString(title);
+               //printHeap(heapstring, outputfile);
+
+                break;
+
+            case 's':   // See top element
+
+              
+
+                minItem = returnMin();
+               // counters[4]++; // Number of user requested return top
+
+                outputfile << "Return top Element: " << num << endl << endl;
+                cout << "Return top Element: " << num << endl << endl;
+
+                // If the number was not found in the Binary Search Tree
+                if (minItem.dataValue == "" && minItem.priorityValue == 0) {
+                    outputfile << "Heap is Empty" << endl;
+                    cout << "Heap is Empty" << endl;
+                }
+                else {
+                    outputfile << "The top element in the heap is: [(" << minItem.dataValue << " ," << minItem.priorityValue <<")]" << endl;
+                    cout << "The top element in the heap is: [(" << minItem.dataValue << " ," << minItem.priorityValue << ")]" << endl;
+                }
+                //heapstring = toString(title);
+               // printHeap(heapstring, outputfile);
+
+                break;
+            case 'a':
+
+                cout << "Printing heap: " << endl << endl;
+                outputfile << "Printing heap: " << endl << endl;
+
+                heapstring = toString(title);
+                printHeap(heapstring, outputfile);
+
+                break;
+
+
+            default:
+                cerr << "Error: No functions were called" << endl;
+                outputfile << "Error: No functions were called" << endl;
+                return;
+            }
+        }
+
+    }
+    cout << "All actions from file complete, printing heap: " << endl;
+    outputfile << "All actions from file complete, printing heap: " << endl;
+    heapstring = toString(title);
+    printHeap(heapstring, outputfile);
+}
+
+
+
+
 
 
 
@@ -142,8 +305,6 @@ void minHeap::contractHeap()
 
 
 
-
-
 void minHeap::printHeap(string heapString, ofstream& output) 
 {
     cout << heapString << endl;
@@ -166,14 +327,14 @@ priorityData minHeap::removeMin()
     currentSize = currentSize - 1;
 
     heapDown();
-
+    contractHeap(); // Check if the heap needed to be decreased.
     return data;
 
 }
 
 void minHeap::heapDown() 
 {
-    // increase heapDown counter
+    counters[8]++; // Total number of heap-down actions
 
     // temp value that holds root value that is replaced
     priorityData temp = heap[1];
@@ -205,7 +366,8 @@ void minHeap::addElement(priorityData element)
 
 void minHeap::heapUp() 
 {
-    // Finds the parent of the inserted item
+
+    counters[7]++; // Total number of heap-down actionws
 
     for (int i = currentSize / 2; i >= 1; i--) {
 
