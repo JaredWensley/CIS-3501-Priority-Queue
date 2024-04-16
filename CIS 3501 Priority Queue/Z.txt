@@ -21,6 +21,9 @@ Return top Element: Data, 3
 
 Remove: Data, 3
 
+Printing heap: 
+
+[(friendship ,5); (king ,8); (form ,7); (kiss ,10); (HUMMY ,20); ]
 New Element: Enter a string to add: 
 New Elemnet: Enter a integer to add: 
 Insert: HELLO, 45
