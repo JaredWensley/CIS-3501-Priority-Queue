@@ -360,10 +360,6 @@ void minHeap::performActions(ofstream& outputfile, string title)
                 cout << "Insert: " << insertData << ", " << insertPriority << endl << endl;
 
                 newElement = { insertData, insertPriority };
-                expandHeap();
-                
-                heap[currentSize + 1] = newElement;
-                currentSize++;
                 addElement(newElement);
 
                 counters[2]++; // Increase number of requested inserts;
@@ -429,9 +425,7 @@ void minHeap::performActions(ofstream& outputfile, string title)
     }
 }
 
-
-
-
+//
 void minHeap::expandHeap() 
 {
     
@@ -447,7 +441,7 @@ void minHeap::expandHeap()
     }
 }
 
-
+//
 void minHeap::contractHeap() 
 {
   
@@ -467,15 +461,14 @@ void minHeap::contractHeap()
     }
 }
 
-
-
+//
 void minHeap::printHeap(string heapString, ofstream& output) 
 {
     cout << heapString << endl;
     output << heapString << endl;
 }
 
-
+//
 priorityData minHeap::removeMin() 
 {
     priorityData data = heap[1];
@@ -497,6 +490,7 @@ priorityData minHeap::removeMin()
 
 }
 
+//
 void minHeap::heapDown() 
 {
     counters[8]++; // Total number of heap-down actions
@@ -520,15 +514,18 @@ void minHeap::heapDown()
 
 }
 
-
+//
 void minHeap::addElement(priorityData element)
 {
-   
+    expandHeap();
+    currentSize++;
     heap[currentSize] = element;
+    
 
     heapUp();
 }
 
+//
 void minHeap::heapUp() 
 {
     counters[7]++; // Total number of heap-down actionws
@@ -555,13 +552,13 @@ void minHeap::heapUp()
     }
 }
 
-
+//
 priorityData minHeap::returnMin() 
 {
     return heap[1];
 }
 
-
+//
 minHeap::minHeap() : Capacity(10), currentSize(0)
 {
     // Allocate array to deafult size + 1 (not using index 0)
@@ -569,7 +566,7 @@ minHeap::minHeap() : Capacity(10), currentSize(0)
     heap = new priorityData[Capacity + 1];
 }
 
-
+//
 minHeap::minHeap(int heapSize) : Capacity(heapSize), currentSize(0) {
 
     // Allocate array to custom size + 1 (not using index 0)
@@ -577,7 +574,7 @@ minHeap::minHeap(int heapSize) : Capacity(heapSize), currentSize(0) {
     heap = new priorityData[Capacity + 1];
 }
 
-
+//
 minHeap::~minHeap()
 {
     delete[] heap;

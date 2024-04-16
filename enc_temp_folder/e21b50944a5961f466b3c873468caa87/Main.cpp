@@ -20,7 +20,8 @@ int main()
 		cerr << "Incorrect character, type D for default or C for custom: " << endl;
 		getline(cin, heapSizeType); // Get the input again
 		cout << endl;
-	
+	}
+
 		
 	if (heapSizeType == "D" || heapSizeType == "d") {
 			A = new minHeap();
@@ -33,6 +34,11 @@ int main()
 
 			getline(cin, blank);
 	}
+	
+		
+	
+
+
 
 	//
 	if(A != nullptr) {
@@ -51,10 +57,12 @@ int main()
 		outputFileName = outputFileName + ".txt";
 		ofstream output(outputFileName);
 
-		//
 		A->ProcessInsertFile(insertFileName, output, title);
+
 		A->performActions(output, title);
+
 		A->printOperations(output);
+
 		delete A;
 	} 
 	return 0;

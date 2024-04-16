@@ -360,8 +360,6 @@ void minHeap::performActions(ofstream& outputfile, string title)
                 cout << "Insert: " << insertData << ", " << insertPriority << endl << endl;
 
                 newElement = { insertData, insertPriority };
-                heap[currentSize + 1] = newElement;
-
                 addElement(newElement);
 
                 counters[2]++; // Increase number of requested inserts;
@@ -521,9 +519,10 @@ void minHeap::heapDown()
 
 void minHeap::addElement(priorityData element)
 {
-    currentSize++;
     expandHeap();
+    currentSize++;
     heap[currentSize] = element;
+    
 
     heapUp();
 }
