@@ -1,7 +1,8 @@
 #include "Header.h"
+#include "Header.h"
 
 // Function that inserts initial elements into heap
-void minHeap::Init( string Title, ofstream& output)
+void minHeap::Init(string Title, ofstream& output)
 {
     string heapString;
     priorityData minValue;
@@ -10,7 +11,7 @@ void minHeap::Init( string Title, ofstream& output)
     {
         priorityData y = heap[i];  // root of subtree to heapify
         int c = 2 * i;  // c is the first child of i
-        while (c <= currentSize) 
+        while (c <= currentSize)
         {
             // c is the index of the smaller child after this line executes
             if (c < currentSize && heap[c].priorityValue > heap[c + 1].priorityValue) c++;
@@ -25,8 +26,8 @@ void minHeap::Init( string Title, ofstream& output)
         heap[c / 2] = y;
     }
 
-    
-    
+
+
     heapString = toString(Title);
     printHeap(heapString, output);
     output << endl;
@@ -38,17 +39,17 @@ void minHeap::Init( string Title, ofstream& output)
     cout << "Printing the heap again: " << endl;
     output << "This Minimun Item was removed--> [(" << minValue.dataValue << "," << minValue.priorityValue << ")]. ";
     output << "Printing the heap again: " << endl;
-    
+
     heapString = toString(Title);
     cout << "Test Name: " << Title << endl;
     output << "Test Name: " << Title << endl;
-    printHeap(heapString, output); 
+    printHeap(heapString, output);
     cout << endl << endl;
     output << endl << endl;
 
-   
+
     // Testing out AddElement function
-   
+
     heapString = toString(Title);
     cout << "Test Name: " << Title << endl;
     output << "Test Name: " << Title << endl;
@@ -72,7 +73,7 @@ string minHeap::toString(string title)  const
 }
 
 //
-void minHeap::ProcessInsertFile(string filename, ofstream& outputfile, string title) 
+void minHeap::ProcessInsertFile(string filename, ofstream& outputfile, string title)
 {
     ifstream insertfile(filename);	//Input file stream
     string line;					// String to hold each line of input
@@ -97,7 +98,7 @@ void minHeap::ProcessInsertFile(string filename, ofstream& outputfile, string ti
         currentSize++;
 
         // Checks if the array is full and double size if so
-       expandHeap();  
+        expandHeap();
     }
 
     insertfile.close();		//Close input file stream
@@ -106,11 +107,11 @@ void minHeap::ProcessInsertFile(string filename, ofstream& outputfile, string ti
 }
 
 //
-void minHeap::ProcessActionFile(string actionfilename, ofstream& outputfile, string title) 
+void minHeap::ProcessActionFile(string actionfilename, ofstream& outputfile, string title)
 {
     priorityData minItem;
     priorityData newElement;
-    
+
 
     string heapstring;
     bool found;
@@ -156,20 +157,20 @@ void minHeap::ProcessActionFile(string actionfilename, ofstream& outputfile, str
         int num;
         char extra;
 
-      
+
         // Handle Error: Extra character found after number,
         if (ss >> extra) {
-        
+
         }
 
         // Continue to call insert, delte or search functions
         else {
 
-           
+
             switch (action) {
             case 'i':
 
-              
+
 
                 if (!(ss >> insertData >> insertPriority)) {
                     cerr << "Error on line " << lineNumber << ": Could not read insert data and priority. Skipping line." << endl;
@@ -181,17 +182,16 @@ void minHeap::ProcessActionFile(string actionfilename, ofstream& outputfile, str
                 cout << "Insert: (" << insertData << ", " << insertPriority << ")" << endl << endl;
 
                 newElement = { insertData, insertPriority };
-                heap[currentSize + 1] = newElement;
+               
+                addElement(newElement);
 
-                addElement(heap[currentSize + 1]);
-
-              //  heap[currentSize + 1] = { "funny", 1 };
+                //  heap[currentSize + 1] = { "funny", 1 };
                 cout << "This item was added to the heap--> [(" << heap[currentSize + 1].dataValue << "," << heap[currentSize + 1].priorityValue << ")]. ";
                 //addElement(heap[currentSize + 1]);
                 cout << "Printing the heap again:" << endl;
 
-               // heapstring = toString(title);
-               // printHeap(heapstring, outputfile);
+                // heapstring = toString(title);
+                // printHeap(heapstring, outputfile);
 
                 counters[2]++; // Increase number of requested inserts;
 
@@ -201,25 +201,25 @@ void minHeap::ProcessActionFile(string actionfilename, ofstream& outputfile, str
             case 'r':
 
                 // Call delete function
-               
+
                 minItem = removeMin();
-              
+
                 outputfile << "Remove: " << minItem.dataValue << ", " << minItem.priorityValue << endl << endl;
                 cout << "Remove: " << minItem.dataValue << ", " << minItem.priorityValue << endl << endl;
 
                 counters[3]++; // Number of user requested removes
 
-              // heapstring = toString(title);
-               //printHeap(heapstring, outputfile);
+                // heapstring = toString(title);
+                 //printHeap(heapstring, outputfile);
 
                 break;
 
             case 's':   // See top element
 
-              
+
 
                 minItem = returnMin();
-               // counters[4]++; // Number of user requested return top
+                // counters[4]++; // Number of user requested return top
 
                 outputfile << "Return top Element: " << minItem.dataValue << ", " << minItem.priorityValue << endl << endl;
                 cout << "Return top Element: " << minItem.dataValue << ", " << minItem.priorityValue << endl << endl;
@@ -260,8 +260,8 @@ void minHeap::ProcessActionFile(string actionfilename, ofstream& outputfile, str
 void minHeap::printOperations(ofstream& outputfile) {
 
     // Index 6 is the number of user actions, add all other user requested counters together
-    counters[6] = counters[2] + counters[3] + counters[4] + counters[5]; 
-  
+    counters[6] = counters[2] + counters[3] + counters[4] + counters[5];
+
     // Output operations to user 
     cout << endl << "User Actions interface Complete" << endl << endl;
 
@@ -279,8 +279,8 @@ void minHeap::printOperations(ofstream& outputfile) {
     // outputting to file
     outputfile << endl << "User Actions interface Complete" << endl << endl;
 
-    outputfile << left << setw(50) << "Total number of Inserts – Initialization " << setw(10) << counters[0] << endl;
-    outputfile << left << setw(50) << "Total number of heap-down actions – Initialization " << setw(10) << counters[1] << endl;
+    outputfile << left << setw(50) << "Total number of Inserts ? Initialization " << setw(10) << counters[0] << endl;
+    outputfile << left << setw(50) << "Total number of heap-down actions ? Initialization " << setw(10) << counters[1] << endl;
     outputfile << left << setw(50) << "Total number of user requested Inserts" << setw(10) << counters[2] << endl;
     outputfile << left << setw(50) << "Total number of user requested Removes" << setw(10) << counters[3] << endl;
     outputfile << left << setw(50) << "Total number of user requested Return top" << setw(10) << counters[4] << endl;
@@ -310,11 +310,11 @@ void minHeap::performActions(ofstream& outputfile, string title)
     cin >> perform;
 
     //
-    if (perform == 'f' || perform == 'b' || perform == 'F' || perform == 'B') 
+    if (perform == 'f' || perform == 'b' || perform == 'F' || perform == 'B')
     {
-    cout << "Enter action file name: ";
-    cin >> actionFileName; 	cout << endl;
-    actionFileName = actionFileName + ".txt";
+        cout << "Enter action file name: ";
+        cin >> actionFileName; 	cout << endl;
+        actionFileName = actionFileName + ".txt";
 
         ProcessActionFile(actionFileName, outputfile, title);
         cout << "Action File is complete" << endl;
@@ -360,10 +360,6 @@ void minHeap::performActions(ofstream& outputfile, string title)
                 cout << "Insert: " << insertData << ", " << insertPriority << endl << endl;
 
                 newElement = { insertData, insertPriority };
-                expandHeap();
-                
-                heap[currentSize + 1] = newElement;
-                currentSize++;
                 addElement(newElement);
 
                 counters[2]++; // Increase number of requested inserts;
@@ -372,7 +368,7 @@ void minHeap::performActions(ofstream& outputfile, string title)
 
             case 'r':
 
-                if (currentSize > 0) {
+                if (currentSize != 0) {
                     temp = removeMin();
 
                     outputfile << "Remove: " << temp.dataValue << ", " << temp.priorityValue << endl << endl;
@@ -429,12 +425,10 @@ void minHeap::performActions(ofstream& outputfile, string title)
     }
 }
 
-
-
-
-void minHeap::expandHeap() 
+//
+void minHeap::expandHeap()
 {
-    
+
     if (currentSize >= Capacity) {
         cout << "expandHeap was called" << endl;
         priorityData* tempHeap = new priorityData[Capacity * 2 + 1];
@@ -447,10 +441,10 @@ void minHeap::expandHeap()
     }
 }
 
-
-void minHeap::contractHeap() 
+//
+void minHeap::contractHeap()
 {
-  
+
     if (currentSize <= (Capacity / 2)) {
         cout << "ContractHeap was called" << endl;
         priorityData* tempHeap = new priorityData[Capacity / 2 + 1];
@@ -467,16 +461,15 @@ void minHeap::contractHeap()
     }
 }
 
-
-
-void minHeap::printHeap(string heapString, ofstream& output) 
+//
+void minHeap::printHeap(string heapString, ofstream& output)
 {
     cout << heapString << endl;
     output << heapString << endl;
 }
 
-
-priorityData minHeap::removeMin() 
+//
+priorityData minHeap::removeMin()
 {
     priorityData data = heap[1];
 
@@ -497,7 +490,8 @@ priorityData minHeap::removeMin()
 
 }
 
-void minHeap::heapDown() 
+//
+void minHeap::heapDown()
 {
     counters[8]++; // Total number of heap-down actions
 
@@ -520,24 +514,27 @@ void minHeap::heapDown()
 
 }
 
-
+//
 void minHeap::addElement(priorityData element)
 {
-   
+    expandHeap();
+    currentSize++;
     heap[currentSize] = element;
+
 
     heapUp();
 }
 
-void minHeap::heapUp() 
+//
+void minHeap::heapUp()
 {
     counters[7]++; // Total number of heap-down actionws
 
     // Same algorithm as in the intilization EXCEPT divide by 2 instead of i--, 
     // the heap is already "sorted" only need one path up. not the whole heap
-    for (int i = currentSize / 2; i >= 1; i = i /2) {
+    for (int i = currentSize / 2; i >= 1; i = i / 2) {
 
-        
+
         priorityData temp = heap[i];
         int c = 2 * i;
         while (c <= currentSize)
@@ -555,33 +552,34 @@ void minHeap::heapUp()
     }
 }
 
-
-priorityData minHeap::returnMin() 
+//
+priorityData minHeap::returnMin()
 {
     return heap[1];
 }
 
-
+//
 minHeap::minHeap() : Capacity(10), currentSize(0)
 {
     // Allocate array to deafult size + 1 (not using index 0)
-   
+
     heap = new priorityData[Capacity + 1];
 }
 
-
+//
 minHeap::minHeap(int heapSize) : Capacity(heapSize), currentSize(0) {
 
     // Allocate array to custom size + 1 (not using index 0)
- 
+
     heap = new priorityData[Capacity + 1];
 }
 
-
+//
 minHeap::~minHeap()
 {
     delete[] heap;
 }
+
 
 
 

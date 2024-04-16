@@ -7,12 +7,21 @@
 #include<math.h>
 #include<string>
 #include<iostream>
+#pragma once
+#include <stdexcept>
+#include <numeric>
+#include <sstream>
+#include <array>
+#include<vector>
+#include<math.h>
+#include<string>
+#include<iostream>
 #include <iomanip>
 #include<fstream>
 
 using namespace std;
 
-struct priorityData 
+struct priorityData
 {
 	string dataValue = "";
 	int priorityValue = 0;
@@ -20,13 +29,14 @@ struct priorityData
 
 class minHeap {
 public:
-	minHeap();				
-	~minHeap();				 
-	minHeap(int capacity);	 
+	minHeap();
+	~minHeap();
+	minHeap(int capacity);
 	void ProcessInsertFile(string filename, ofstream& output, string title);
 	void ProcessActionFile(string filename, ofstream& output, string title);
 	void performActions(ofstream& outputfile, string title);
 	void printOperations(ofstream& outputfile);
+	
 
 protected:
 	string Title;
@@ -57,4 +67,14 @@ protected:
 	void heapUp();
 };
 
+class PriorityQueue : public minHeap {
+public:
+	string title;
+	PriorityQueue() : minHeap() {}  // Initialize with default size
+	PriorityQueue(int capacity) : minHeap(capacity) {}  // Initialize with specified capacity
+	void insert(priorityData element);
+	priorityData remove();
+	priorityData returnTop();
+	string toString(string title);
+};
 
