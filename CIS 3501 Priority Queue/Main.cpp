@@ -61,6 +61,7 @@ int main()
 
 		A->performActions(output, title);
 
+		A->printOperations(output);
 
 		delete A;
 	} 

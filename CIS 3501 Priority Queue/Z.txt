@@ -1,49 +1,20 @@
 [(idoit ,1); (Data ,3); (lovely ,2); (kiss ,10); (friendship ,5); (form ,7); (king ,8); (HUMMY ,20); ]
 
-This Minimun Item was removed--> [(idoit,1)]. Printing the heap again: 
-Test Name: testing
-[(lovely ,2); (Data ,3); (form ,7); (kiss ,10); (friendship ,5); (HUMMY ,20); (king ,8); ]
-
-
-Test Name: testing
-[(lovely ,2); (Data ,3); (form ,7); (kiss ,10); (friendship ,5); (HUMMY ,20); (king ,8); ]
-Remove: lovely, 2
-
-Remove: Data, 3
-
-Return top Element: friendship, 5
-
-Printing heap: 
-
-[(friendship ,5); (king ,8); (form ,7); (kiss ,10); (HUMMY ,20); ]
-All actions from file complete, printing heap: 
-[(friendship ,5); (king ,8); (form ,7); (kiss ,10); (HUMMY ,20); ]
 Enter Action: 
 I(nsert)
 R(emove)
 S(ee top element)
 A(ll items in string)
 Type Any other letter  to quit
-Remove: friendship, 5
-
-Return top Element: form, 7
+Remove: idoit, 1
 
 Printing heap: 
 
-[(form ,7); (king ,8); (HUMMY ,20); (kiss ,10); ]
-Printing heap: 
-
-[(form ,7); (king ,8); (HUMMY ,20); (kiss ,10); ]
-Remove: form, 7
-
+[(lovely ,2); (Data ,3); (form ,7); (kiss ,10); (friendship ,5); (HUMMY ,20); (king ,8); ]
 New Element: Enter a string to add: 
 New Elemnet: Enter a integer to add: 
-Insert: hunt, 24
-
-New Element: Enter a string to add: 
-New Elemnet: Enter a integer to add: 
-Insert: ad, 21
+Insert: YOOO, 1
 
 Printing heap: 
 
-[(king ,8); (kiss ,10); (HUMMY ,20); (hunt ,24); (ad ,21); ]
+[(YOOO ,1); (lovely ,2); (form ,7); (Data ,3); (friendship ,5); (HUMMY ,20); (king ,8); (kiss ,10); ]

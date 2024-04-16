@@ -26,12 +26,13 @@ void minHeap::Init( string Title, ofstream& output)
     }
 
     
-
+    
     heapString = toString(Title);
     printHeap(heapString, output);
     output << endl;
     cout << endl;
 
+    /*
     minValue = removeMin();
     cout << "This Minimun Item was removed--> [(" << minValue.dataValue << "," << minValue.priorityValue << ")]. ";
     cout << "Printing the heap again: " << endl;
@@ -52,6 +53,7 @@ void minHeap::Init( string Title, ofstream& output)
     cout << "Test Name: " << Title << endl;
     output << "Test Name: " << Title << endl;
     printHeap(heapString, output);
+    */
 
 }
 
@@ -254,7 +256,16 @@ void minHeap::ProcessActionFile(string actionfilename, ofstream& outputfile, str
     printHeap(heapstring, outputfile);
 }
 
+//
+void minHeap::printOperations(ofstream& outputfile) {
 
+
+
+
+
+}
+
+//
 void minHeap::performActions(ofstream& outputfile, string title)
 {
     priorityData minItem;
@@ -367,7 +378,7 @@ void minHeap::performActions(ofstream& outputfile, string title)
 
                 heapstring = toString(title);
                 printHeap(heapstring, outputfile);
-
+                counters[5]++; // number of user requested print
                 break;
 
 
@@ -486,7 +497,7 @@ void minHeap::heapUp()
 
     counters[7]++; // Total number of heap-down actionws
 
-    for (int i = currentSize / 2; i >= 1; i--) {
+    for (int i = currentSize / 2; i >= 1; i = i /2) {
 
         
         priorityData temp = heap[i];

@@ -25,7 +25,8 @@ public:
 	void ProcessInsertFile(string filename, ofstream& output, string title);
 	void ProcessActionFile(string filename, ofstream& output, string title);
 	void performActions(ofstream& outputfile, string title);
-	
+	void printOperations(ofstream& outputfile);
+
 protected:
 	string Title;
 	priorityData* heap;
@@ -37,7 +38,7 @@ protected:
 	// Index 1 -- Total Number of heap-down actions - Initialization	GOOD
 	// Index 2 -- Number of user requested Inserts						GOOD
 	// Index 3 -- Number of user requested removes						GOOD
-	// Index 4 -- Number of user requested return top					NOT
+	// Index 4 -- Number of user requested return top					GOOD
 	// Index 5 -- Number of user requested print						NOT
 	// Index 6 -- Number of heap actions for user actions				NOT
 	// Index 7 -- Total number of heap-up actions						GOOD		
