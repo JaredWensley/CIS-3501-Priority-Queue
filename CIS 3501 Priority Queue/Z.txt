@@ -11,20 +11,15 @@ Printing heap:
 [(Data ,3); (friendship ,5); (form ,7); (kiss ,10); (king ,8); (HUMMY ,20); ]
 All actions from file complete, printing heap: 
 [(Data ,3); (friendship ,5); (form ,7); (kiss ,10); (king ,8); (HUMMY ,20); ]
-Enter Action: 
-I(nsert)
-R(emove)
-S(ee top element)
-A(ll items in string)
-Type Any other letter  to quit
-Return top Element: Data, 3
 
-Remove: Data, 3
+User Actions interface Complete
 
-Printing heap: 
-
-[(friendship ,5); (king ,8); (form ,7); (kiss ,10); (HUMMY ,20); ]
-New Element: Enter a string to add: 
-New Elemnet: Enter a integer to add: 
-Insert: HELLO, 45
-
+Total number of Inserts ? Initialization          8         
+Total number of heap-down actions ? Initialization 5         
+Total number of user requested Inserts            0         
+Total number of user requested Removes            0         
+Total number of user requested Return top         0         
+Total number of user requested Print              0         
+Total number of heap actions for user actions     0         
+Total number of heap-up actions                   0         
+Total number of heap-down actions                 2         

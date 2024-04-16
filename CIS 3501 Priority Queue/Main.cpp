@@ -1,14 +1,14 @@
 #include "Header.h"
 
-int main() 
+int main()
 {
 	int heapSize;
 	string heapSizeType;
 	string title;
 	string insertFileName;
-	string actionFileName; 
+	string actionFileName;
 	string outputFileName;
-	minHeap* A = nullptr;
+	PriorityQueue* A = nullptr;
 	string blank;
 
 
@@ -22,26 +22,20 @@ int main()
 		cout << endl;
 	}
 
-		
 	if (heapSizeType == "D" || heapSizeType == "d") {
-			A = new minHeap();
+		A = new PriorityQueue();
 	}
-	else if(heapSizeType == "C" || heapSizeType == "c") {
-			cout << "Enter the size of heap: ";
-			cin >> heapSize;
-			cout << endl;
-			A = new minHeap(heapSize);
+	else if (heapSizeType == "C" || heapSizeType == "c") {
+		cout << "Enter the size of heap: ";
+		cin >> heapSize;
+		cout << endl;
+		A = new PriorityQueue(heapSize);
 
-			getline(cin, blank);
+		getline(cin, blank);
 	}
-	
-		
-	
-
-
 
 	//
-	if(A != nullptr) {
+	if (A != nullptr) {
 		cout << "Enter test title: ";
 		getline(cin, title); 	cout << endl;
 
@@ -64,7 +58,7 @@ int main()
 		A->printOperations(output);
 
 		delete A;
-	} 
+	}
 	return 0;
 
 }
