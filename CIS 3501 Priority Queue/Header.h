@@ -7,6 +7,7 @@
 #include<math.h>
 #include<string>
 #include<iostream>
+#include <iomanip>
 #include<fstream>
 
 using namespace std;
@@ -39,8 +40,8 @@ protected:
 	// Index 2 -- Number of user requested Inserts						GOOD
 	// Index 3 -- Number of user requested removes						GOOD
 	// Index 4 -- Number of user requested return top					GOOD
-	// Index 5 -- Number of user requested print						NOT
-	// Index 6 -- Number of heap actions for user actions				NOT
+	// Index 5 -- Number of user requested print						GOOD
+	// Index 6 -- Number of heap actions for user actions				GOOD
 	// Index 7 -- Total number of heap-up actions						GOOD		
 	// Index 8 -- Total number of heap-down actions						GOOD
 
