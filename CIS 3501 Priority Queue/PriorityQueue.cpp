@@ -1,22 +1,27 @@
 #include "Header.h"
 
 
+//
 void PriorityQueue::insert(priorityData element) {
 	addElement(element);
 }
 
+//
 priorityData PriorityQueue::removeHighestPriority() {
 	return removeMin();
 }
 
+//
 priorityData PriorityQueue::returnHighestPriority() {
 	return returnMin();
 }
 
+//
 string PriorityQueue::PQtoString(string title)  {
 	return toString(title);
 }
 
+//
 void PriorityQueue::performActions(ofstream& outputfile, string title)
 {
     priorityData minItem;
@@ -151,6 +156,7 @@ void PriorityQueue::performActions(ofstream& outputfile, string title)
     }
 }
 
+//
 void PriorityQueue::ProcessActionFile(string actionfilename, ofstream& outputfile, string title)
 {
     priorityData minItem;

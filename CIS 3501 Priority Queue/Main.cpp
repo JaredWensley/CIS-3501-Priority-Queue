@@ -34,7 +34,7 @@ int main()
 		getline(cin, blank);
 	}
 
-	//
+	// Ask for title, insert file and then perform program
 	if (A != nullptr) {
 		cout << "Enter test title: ";
 		getline(cin, title); 	cout << endl;
@@ -59,6 +59,7 @@ int main()
 
 		delete A;
 	}
+
 	return 0;
 
 }
