@@ -133,6 +133,7 @@ void minHeap::expandHeap()
         Capacity = Capacity * 2;
         delete[] heap;
         heap = tempHeap;
+        cout << "PriorityQueue max size doubled to " << Capacity << endl;
     }
 }
 
@@ -149,6 +150,8 @@ void minHeap::contractHeap()
         Capacity = Capacity / 2;
         delete[] heap;
         heap = tempHeap;
+        cout << "PriorityQueue max halfed to " << Capacity << endl;
+    
     }
     if (currentSize == 0) {
         cout << "Heap is empty, Can not remove any more elements" << endl;
