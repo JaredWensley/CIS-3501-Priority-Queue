@@ -1,0 +1,30 @@
+[("g", 1);
+("e", 2);
+("a", 3);
+("d", 7);
+("b", 4);
+("f", 5);
+("c", 5);
+("h", 72);
+("i", 21);
+("j", 42);
+("c", 6)]
+
+
+Enter Action: 
+I(nsert)
+R(emove)
+S(ee top element)
+A(ll items in string)
+Type Any other letter  to quit
+No Actions performed from file or user
+
+User Actions interface Complete
+
+Total number of Inserts ? Initialization          11        
+Total number of heap-down actions ? Initialization 3         
+Total number of user requested Inserts            0         
+Total number of user requested Removes            0         
+Total number of user requested Return top         0         
+Total number of user requested Print              0         
+Total number of heap actions for user actions     0         

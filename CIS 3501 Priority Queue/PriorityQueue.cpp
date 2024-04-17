@@ -224,12 +224,10 @@ void PriorityQueue::ProcessActionFile(string actionfilename, ofstream& outputfil
 
 
         // Handle Error: Extra character found after number,
-        if (ss >> extra) {
-
-        }
+        
 
         // Continue to call insert, delte or search functions
-        else {
+        
 
 
             switch (action) {
@@ -298,8 +296,8 @@ void PriorityQueue::ProcessActionFile(string actionfilename, ofstream& outputfil
                 heapstring = toString(title);
 
                 if (currentSize == 0) {
-                    cout << endl << "HEAP IS EMPTY" << endl;
-                    outputfile << endl << "HEAP IS EMPTY" << endl;
+                    cout << endl << "PRIORITY Queue IS EMPTY" << endl;
+                    outputfile << endl << "PRIORITY Queue IS EMPTY" << endl;
                 }
                 printHeap(heapstring, outputfile);
                 cout << endl;
@@ -312,7 +310,7 @@ void PriorityQueue::ProcessActionFile(string actionfilename, ofstream& outputfil
                 outputfile << "Error: No functions were called" << endl;
                 return;
             }
-        }
+        
 
     }
     cout << "All actions from file complete, printing heap: " << endl;

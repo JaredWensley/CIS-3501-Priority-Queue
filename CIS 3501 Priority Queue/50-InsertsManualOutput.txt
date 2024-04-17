@@ -1,0 +1,221 @@
+[]
+
+
+
+PRIORITY QUEUE IS EMPTY
+Enter Action: 
+I(nsert)
+R(emove)
+S(ee top element)
+A(ll items in string)
+Type Any other letter  to quit
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: one, 30
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: two, 32
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: thr, 19
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: a, 12
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: a, 25
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: six, 29
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: Seven, 40
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: eight, 15
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: nine, 24
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: ten, 20
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: eleven, 9
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: twelve, 38
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: thirteen, 24
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: fourteen, 12
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: fifteen, 37
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: sixteen, 1
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: seventeen, 19
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: eighteen, 20
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: nineteen, 30
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: twenty, 32
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: twentyOne, 13
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: twentytwo, 8
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: twentythree, 26
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: twentyfour, 38
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: twentyfive, 10
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: twentySix, 43
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: twentySeven, 27
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: twentyEight, 41
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: twentyNine, 42
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: thirty, 27
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: thirtyone, 17
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: thirtytwo, 26
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: thirtythree, 9
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: thirtyfour, 48
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: thirtyfive, 38
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: thirtysix, 7
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: thirtyseven, 3
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: thirtyeight, 4
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: thirtynine, 20
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: forty, 44
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: fortyone, 2
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: fortytwo, 36
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: fortyThree, 5
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: fortyfour, 30
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: fortyfive, 50
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: fortySix, 1
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: fortyseven, 50
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: fortyEight, 8
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: fortyNine, 11
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: fifty, 7
+
+
+User Actions interface Complete
+
+Total number of Inserts ? Initialization          0         
+Total number of heap-down actions ? Initialization 0         
+Total number of user requested Inserts            50        
+Total number of user requested Removes            0         
+Total number of user requested Return top         0         
+Total number of user requested Print              0         
+Total number of heap actions for user actions     50        

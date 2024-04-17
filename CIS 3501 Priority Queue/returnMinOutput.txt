@@ -1,0 +1,32 @@
+[("e", 1);
+("a", 3);
+("c", 2);
+("d", 6);
+("b", 4);
+("f", 8);
+("g", 5)]
+
+
+Return top Element: e, 1
+
+Return top Element: e, 1
+
+All actions from file complete, printing heap: 
+[("e", 1);
+("a", 3);
+("c", 2);
+("d", 6);
+("b", 4);
+("f", 8);
+("g", 5)]
+
+
+User Actions interface Complete
+
+Total number of Inserts ? Initialization          7         
+Total number of heap-down actions ? Initialization 2         
+Total number of user requested Inserts            0         
+Total number of user requested Removes            0         
+Total number of user requested Return top         0         
+Total number of user requested Print              0         
+Total number of heap actions for user actions     0         

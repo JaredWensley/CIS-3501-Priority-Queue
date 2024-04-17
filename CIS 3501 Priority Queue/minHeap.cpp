@@ -32,6 +32,11 @@ void minHeap::Init(string Title, ofstream& output)
     output << endl;
     cout << endl;
 
+    if (currentSize == 0) {
+        cout << endl << "PRIORITY Queue IS EMPTY" << endl;
+        output << endl << "PRIORITY QUEUE IS EMPTY" << endl;
+    }
+
 }
 
 // Prints the heap in string format
@@ -164,6 +169,8 @@ void minHeap::printHeap(string heapString, ofstream& output)
 {
     cout << heapString << endl << endl;
     output << heapString << endl << endl;
+
+    
 }
 
 //

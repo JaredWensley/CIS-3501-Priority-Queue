@@ -1,0 +1,28 @@
+[("front", 1);
+("pump", 2);
+("Love", 4);
+("Front", 6);
+("snuggle", 3);
+("Data", 8);
+("hug", 14);
+("sink", 17);
+("Eagle", 7)]
+
+
+Enter Action: 
+I(nsert)
+R(emove)
+S(ee top element)
+A(ll items in string)
+Type Any other letter  to quit
+No Actions performed from file or user
+
+User Actions interface Complete
+
+Total number of Inserts ? Initialization          9         
+Total number of heap-down actions ? Initialization 5         
+Total number of user requested Inserts            0         
+Total number of user requested Removes            0         
+Total number of user requested Return top         0         
+Total number of user requested Print              0         
+Total number of heap actions for user actions     0         

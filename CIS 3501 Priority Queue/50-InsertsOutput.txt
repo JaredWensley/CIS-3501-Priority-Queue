@@ -1,0 +1,69 @@
+[("sixteen", 1);
+("fortySix", 1);
+("fifty", 7);
+("thirtySeven", 3);
+("fortyOne", 2);
+("fortyEight", 8);
+("fourteen", 12);
+("thirtyThree", 9);
+("thirtyEight", 4);
+("fortyThree", 5);
+("twentyTwo", 8);
+("twentyFive", 10);
+("thirteen", 24);
+("seven", 40);
+("thirtyOne", 17);
+("four", 12);
+("seventeen", 19);
+("thirtySix", 7);
+("thirtyNine", 20);
+("ten", 20);
+("twentyOne", 13);
+("five", 25);
+("eleven", 9);
+("fortyNine", 11);
+("three", 19);
+("twentySix", 43);
+("twentySeven", 27);
+("twentyEight", 41);
+("twentyNine", 42);
+("thirty", 27);
+("fifteen", 37);
+("thirtyTwo", 26);
+("eight", 15);
+("thirtyFour", 48);
+("thirtyFive", 38);
+("nine", 24);
+("eighteen", 20);
+("nineteen", 30);
+("two", 32);
+("forty", 44);
+("twenty", 32);
+("fortyTwo", 36);
+("one", 30);
+("fortyFour", 30);
+("fortyFive", 50);
+("twentyThree", 26);
+("fortySeven", 50);
+("twentyFour", 38);
+("six", 29);
+("twelve", 38)]
+
+
+Enter Action: 
+I(nsert)
+R(emove)
+S(ee top element)
+A(ll items in string)
+Type Any other letter  to quit
+No Actions performed from file or user
+
+User Actions interface Complete
+
+Total number of Inserts ? Initialization          50        
+Total number of heap-down actions ? Initialization 36        
+Total number of user requested Inserts            0         
+Total number of user requested Removes            0         
+Total number of user requested Return top         0         
+Total number of user requested Print              0         
+Total number of heap actions for user actions     0         

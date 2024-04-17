@@ -1,0 +1,9 @@
+Data 8
+Front 6
+Love 4
+Eagle 7
+snuggle 3
+front 1
+hug 14
+sink 17
+pump 2

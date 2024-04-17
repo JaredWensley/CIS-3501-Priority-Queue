@@ -1,0 +1,30 @@
+[("f", 1);
+("e", 5);
+("c", 2);
+("d", 8);
+("b", 7);
+("a", 3);
+("g", 8)]
+
+
+Remove: f, 1
+
+Remove: c, 2
+
+All actions from file complete, printing heap: 
+[("a", 3);
+("e", 5);
+("g", 8);
+("d", 8);
+("b", 7)]
+
+
+User Actions interface Complete
+
+Total number of Inserts ? Initialization          7         
+Total number of heap-down actions ? Initialization 4         
+Total number of user requested Inserts            0         
+Total number of user requested Removes            0         
+Total number of user requested Return top         0         
+Total number of user requested Print              0         
+Total number of heap actions for user actions     2         

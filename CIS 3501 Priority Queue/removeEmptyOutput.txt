@@ -1,0 +1,18 @@
+[]
+
+
+
+PRIORITY QUEUE IS EMPTY
+All actions from file complete, printing heap: 
+[]
+
+
+User Actions interface Complete
+
+Total number of Inserts ? Initialization          0         
+Total number of heap-down actions ? Initialization 0         
+Total number of user requested Inserts            0         
+Total number of user requested Removes            0         
+Total number of user requested Return top         0         
+Total number of user requested Print              0         
+Total number of heap actions for user actions     0         

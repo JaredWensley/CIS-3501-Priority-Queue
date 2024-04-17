@@ -1,0 +1,59 @@
+[("e", 1);
+("d", 2);
+("c", 5);
+("a", 3);
+("b", 8);
+("f", 9);
+("g", 12);
+("h", 10)]
+
+
+Insert: (giveMe, 3)
+
+Insert: (ZaneBeCrazy, 11)
+
+Insert: (Letter, 5)
+
+Return top Element: e, 1
+
+Remove: e, 1
+
+Printing heap: 
+
+[("d", 2);
+("a", 3);
+("c", 5);
+("giveMe", 3);
+("Letter", 5);
+("f", 9);
+("g", 12);
+("h", 10);
+("b", 8);
+("ZaneBeCrazy", 11)]
+
+
+Remove: d, 2
+
+Return top Element: a, 3
+
+All actions from file complete, printing heap: 
+[("a", 3);
+("giveMe", 3);
+("c", 5);
+("b", 8);
+("Letter", 5);
+("f", 9);
+("g", 12);
+("h", 10);
+("ZaneBeCrazy", 11)]
+
+
+User Actions interface Complete
+
+Total number of Inserts ? Initialization          8         
+Total number of heap-down actions ? Initialization 3         
+Total number of user requested Inserts            0         
+Total number of user requested Removes            0         
+Total number of user requested Return top         0         
+Total number of user requested Print              0         
+Total number of heap actions for user actions     5         

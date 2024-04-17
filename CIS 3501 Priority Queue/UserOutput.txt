@@ -1,0 +1,62 @@
+[]
+
+
+
+PRIORITY QUEUE IS EMPTY
+Insert: (data, 33)
+
+Return top Element: data, 33
+
+Printing heap: 
+
+[("data", 33)]
+
+
+Remove: data, 33
+
+All actions from file complete, printing heap: 
+[]
+
+Enter Action: 
+I(nsert)
+R(emove)
+S(ee top element)
+A(ll items in string)
+Type Any other letter  to quit
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: testing, 32
+
+New Element: Enter a string to add: 
+New Elemnet: Enter a integer to add: 
+Insert: friend, 3
+
+Printing heap: 
+
+[("friend", 3);
+("testing", 32)]
+
+Return top Element: friend, 3
+
+Remove: friend, 3
+
+Printing heap: 
+
+[("testing", 32)]
+
+Remove: testing, 32
+
+Printing heap: 
+
+[]
+
+
+User Actions interface Complete
+
+Total number of Inserts ? Initialization          0         
+Total number of heap-down actions ? Initialization 0         
+Total number of user requested Inserts            2         
+Total number of user requested Removes            2         
+Total number of user requested Return top         1         
+Total number of user requested Print              3         
+Total number of heap actions for user actions     4         

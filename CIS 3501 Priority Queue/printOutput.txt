@@ -1,0 +1,35 @@
+[("PrintOne", 1);
+("PrintTwo", 2);
+("PrintThree", 3);
+("PrintFour", 4)]
+
+
+Return top Element: PrintOne, 1
+
+Remove: PrintOne, 1
+
+Printing heap: 
+
+[("PrintTwo", 2);
+("PrintFour", 4);
+("PrintThree", 3)]
+
+
+Remove: PrintTwo, 2
+
+Return top Element: PrintThree, 3
+
+All actions from file complete, printing heap: 
+[("PrintThree", 3);
+("PrintFour", 4)]
+
+
+User Actions interface Complete
+
+Total number of Inserts ? Initialization          4         
+Total number of heap-down actions ? Initialization 0         
+Total number of user requested Inserts            0         
+Total number of user requested Removes            0         
+Total number of user requested Return top         0         
+Total number of user requested Print              0         
+Total number of heap actions for user actions     2         

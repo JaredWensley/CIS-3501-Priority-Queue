@@ -2,5 +2,7 @@ I giveMe 3
 I ZaneBeCrazy 11
 I Letter 5
 S
+R
 A
+R
 S
