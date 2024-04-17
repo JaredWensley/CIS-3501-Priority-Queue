@@ -24,6 +24,8 @@ string PriorityQueue::PQtoString(string title)  {
 //
 void PriorityQueue::performActions(ofstream& outputfile, string title)
 {
+    int ActionCheck = 0;
+    int fileCheck = 0;
     priorityData minItem;
     priorityData newElement;
     priorityData temp;
@@ -43,12 +45,15 @@ void PriorityQueue::performActions(ofstream& outputfile, string title)
     //
     if (perform == 'f' || perform == 'b' || perform == 'F' || perform == 'B')
     {
+      
+        fileCheck++;
         cout << "Enter action file name: ";
         cin >> actionFileName; 	cout << endl;
         actionFileName = actionFileName + ".txt";
 
         ProcessActionFile(actionFileName, outputfile, title);
         cout << "Action File is complete" << endl;
+
     }
 
     //
@@ -70,7 +75,11 @@ void PriorityQueue::performActions(ofstream& outputfile, string title)
 
         cin >> Type;
 
+       
+
         while (Type == 'i' || Type == 'r' || Type == 's' || Type == 'a' || Type == 'I' || Type == 'R' || Type == 'S' || Type == 'A') {
+            
+            ActionCheck++;
 
             ActionType = tolower(Type);
 
@@ -153,6 +162,12 @@ void PriorityQueue::performActions(ofstream& outputfile, string title)
             cout << "Enter Next Action: ";
             cin >> Type; cout << endl;
         }
+
+    }
+    // If the user performs no actions
+    if (ActionCheck == 0 && fileCheck == 0) {
+        cout << "No Actions performed from file or user" << endl;
+        outputfile << "No Actions performed from file or user" << endl;
     }
 }
 

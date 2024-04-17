@@ -1,5 +1,4 @@
 #include "Header.h"
-#include "Header.h"
 
 // Function that inserts initial elements into heap
 void minHeap::Init(string Title, ofstream& output)
@@ -38,14 +37,20 @@ void minHeap::Init(string Title, ofstream& output)
 // Prints the heap in string format
 string minHeap::toString(string title)  const
 {
-    string str = "[";
+
+    ostringstream oss;
+    oss << "["; // Start with opening bracket and newline
 
     for (int i = 1; i <= currentSize; i++) {
-        str = str + "(" + heap[i].dataValue + " ," + to_string(heap[i].priorityValue) + "); ";
+        // Include a semicolon and newline after each element except the last
+        oss << "(" << "\"" << heap[i].dataValue << "\", " << heap[i].priorityValue << ")";
+        if (i != currentSize) {
+            oss << ";\n";
+        }
     }
 
-    str = str + "]";
-    return str;
+    oss << "]"; // Close with a newline and closing bracket
+    return oss.str();
 
 }
 
@@ -87,7 +92,7 @@ void minHeap::ProcessInsertFile(string filename, ofstream& outputfile, string ti
 void minHeap::printOperations(ofstream& outputfile) {
 
     // Index 6 is the number of user actions, add all other user requested counters together
-    counters[6] = counters[2] + counters[3] + counters[4] + counters[5];
+    counters[6] = counters[7] + counters[8];
 
     // Output operations to user 
     cout << endl << "User Actions interface Complete" << endl << endl;
@@ -113,8 +118,6 @@ void minHeap::printOperations(ofstream& outputfile) {
     outputfile << left << setw(50) << "Total number of user requested Return top" << setw(10) << counters[4] << endl;
     outputfile << left << setw(50) << "Total number of user requested Print" << setw(10) << counters[5] << endl;
     outputfile << left << setw(50) << "Total number of heap actions for user actions " << setw(10) << counters[6] << endl;
-    outputfile << left << setw(50) << "Total number of heap-up actions" << setw(10) << counters[7] << endl;
-    outputfile << left << setw(50) << "Total number of heap-down actions" << setw(10) << counters[8] << endl;
 }
 
 //
@@ -156,8 +159,8 @@ void minHeap::contractHeap()
 //
 void minHeap::printHeap(string heapString, ofstream& output)
 {
-    cout << heapString << endl;
-    output << heapString << endl;
+    cout << heapString << endl << endl;
+    output << heapString << endl << endl;
 }
 
 //
