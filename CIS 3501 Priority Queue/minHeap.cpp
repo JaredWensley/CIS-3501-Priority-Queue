@@ -33,7 +33,7 @@ void minHeap::Init(string Title, ofstream& output)
     cout << endl;
 
     if (currentSize == 0) {
-        cout << endl << "PRIORITY Queue IS EMPTY" << endl;
+        cout << endl << "PRIORITY QUEUE IS EMPTY" << endl;
         output << endl << "PRIORITY QUEUE IS EMPTY" << endl;
     }
 
@@ -198,7 +198,7 @@ priorityData minHeap::removeMin()
 //
 void minHeap::heapDown()
 {
-    counters[8]++; // Total number of heap-down actions
+   
 
     // temp value that holds root value that is replaced
     priorityData temp = heap[1];
@@ -214,6 +214,7 @@ void minHeap::heapDown()
 
         heap[c / 2] = heap[c]; // move child up
         c = c * 2;               // move down a level
+        counters[8]++; // Total number of heap-down actions
     }
     heap[c / 2] = temp;
 
@@ -233,7 +234,7 @@ void minHeap::addElement(priorityData element)
 //
 void minHeap::heapUp()
 {
-    counters[7]++; // Total number of heap-down actionws
+    
 
     // Same algorithm as in the intilization EXCEPT divide by 2 instead of i--, 
     // the heap is already "sorted" only need one path up. not the whole heap
@@ -252,6 +253,7 @@ void minHeap::heapUp()
 
             heap[c / 2] = heap[c]; // move child up
             c = c * 2;               // move down a level
+            counters[7]++; // Total number of heap-down actionws
         }
         heap[c / 2] = temp;
     }

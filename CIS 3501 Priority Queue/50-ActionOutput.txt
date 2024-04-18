@@ -1,0 +1,167 @@
+[]
+
+
+
+PRIORITY QUEUE IS EMPTY
+Insert: (one, 30)
+
+Insert: (two, 32)
+
+Insert: (three, 19)
+
+Insert: (four, 12)
+
+Insert: (five, 25)
+
+Insert: (six, 29)
+
+Insert: (seven, 40)
+
+Insert: (eight, 15)
+
+Insert: (nine, 24)
+
+Insert: (iten, 20)
+
+Insert: (eleven, 9)
+
+Insert: (twelve, 38)
+
+Insert: (thirteen, 24)
+
+Insert: (fourteen, 12)
+
+Insert: (fifteen, 37)
+
+Insert: (sixteen, 1)
+
+Insert: (seventeen, 19)
+
+Insert: (eighteen, 20)
+
+Insert: (nineteen, 30)
+
+Insert: (twenty, 32)
+
+Insert: (twentyOne, 13)
+
+Insert: (twentyTwo, 8)
+
+Insert: (twentyThree, 26)
+
+Insert: (twentyFour, 38)
+
+Insert: (twentyFive, 10)
+
+Insert: (twentySix, 43)
+
+Insert: (twentySeven, 27)
+
+Insert: (twentyEight, 41)
+
+Insert: (twentyNine, 42)
+
+Insert: (thirty, 27)
+
+Insert: (thirtyOne, 17)
+
+Insert: (thirtyTwo, 26)
+
+Insert: (thirtyThree, 9)
+
+Insert: (thirtyFour, 48)
+
+Insert: (thirtyFive, 38)
+
+Insert: (thirtySix, 7)
+
+Insert: (thirtySeven, 3)
+
+Insert: (thirtyEight, 4)
+
+Insert: (thirtyNine, 20)
+
+Insert: (forty, 44)
+
+Insert: (fortyOne, 2)
+
+Insert: (fortyTwo, 36)
+
+Insert: (fortyThree, 5)
+
+Insert: (fortyFour, 30)
+
+Insert: (fortyFive, 50)
+
+Insert: (fortySix, 1)
+
+Insert: (fortySeven, 50)
+
+Insert: (fortyEight, 8)
+
+Insert: (fortyNine, 11)
+
+Insert: (fifty, 7)
+
+All actions from file complete, printing heap: 
+[("four", 12);
+("eleven", 9);
+("fourteen", 12);
+("sixteen", 1);
+("twentyTwo", 8);
+("twentyFive", 10);
+("fourteen", 12);
+("sixteen", 1);
+("thirtySeven", 3);
+("fortyOne", 2);
+("fortySix", 1);
+("fifty", 7);
+("twentySeven", 27);
+("seven", 40);
+("thirtyOne", 17);
+("thirtyThree", 9);
+("seventeen", 19);
+("thirtySeven", 3);
+("thirtyEight", 4);
+("fortyOne", 2);
+("fortyThree", 5);
+("iten", 20);
+("fortySix", 1);
+("fortyEight", 8);
+("fifty", 7);
+("twentySix", 43);
+("one", 30);
+("twentyEight", 41);
+("twentyNine", 42);
+("fifteen", 37);
+("thirty", 27);
+("two", 32);
+("thirtyTwo", 26);
+("thirtyFour", 48);
+("thirtyFive", 38);
+("nine", 24);
+("thirtySix", 7);
+("nineteen", 30);
+("thirtyNine", 20);
+("forty", 44);
+("twenty", 32);
+("fortyTwo", 36);
+("five", 25);
+("fortyFour", 30);
+("fortyFive", 50);
+("twentyThree", 26);
+("fortySeven", 50);
+("twentyFour", 38);
+("fortyNine", 11);
+("twelve", 38)]
+
+
+User Actions interface Complete
+
+Total number of Inserts ? Initialization          0         
+Total number of heap-down actions ? Initialization 0         
+Total number of user requested Inserts            0         
+Total number of user requested Removes            0         
+Total number of user requested Return top         0         
+Total number of user requested Print              0         
+Total number of heap actions for user actions     39        
